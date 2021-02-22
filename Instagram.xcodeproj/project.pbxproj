@@ -18,6 +18,8 @@
 		F964864925DE8C640004824D /* ImageSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F964864825DE8C640004824D /* ImageSelectorController.swift */; };
 		F964864C25DE8C7E0004824D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F964864B25DE8C7E0004824D /* NotificationController.swift */; };
 		F964864F25DE8C8A0004824D /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F964864E25DE8C8A0004824D /* ProfileController.swift */; };
+		F9A2962D25E2F6A100C6DF7D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A2962C25E2F6A100C6DF7D /* CustomTextField.swift */; };
+		F9A2963025E2F89900C6DF7D /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A2962F25E2F89900C6DF7D /* UIButton+Extension.swift */; };
 		F9EF588725E024BA005DA84E /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EF588625E024BA005DA84E /* FeedCell.swift */; };
 		F9EF589025E0271C005DA84E /* UIView+CourseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EF588F25E0271C005DA84E /* UIView+CourseExtensions.swift */; };
 		F9EF589425E02CFB005DA84E /* UIView+AddSubviewAndFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EF589325E02CFB005DA84E /* UIView+AddSubviewAndFill.swift */; };
@@ -39,6 +41,8 @@
 		F964864825DE8C640004824D /* ImageSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorController.swift; sourceTree = "<group>"; };
 		F964864B25DE8C7E0004824D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		F964864E25DE8C8A0004824D /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		F9A2962C25E2F6A100C6DF7D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		F9A2962F25E2F89900C6DF7D /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		F9EF588625E024BA005DA84E /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		F9EF588F25E0271C005DA84E /* UIView+CourseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CourseExtensions.swift"; sourceTree = "<group>"; };
 		F9EF589325E02CFB005DA84E /* UIView+AddSubviewAndFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubviewAndFill.swift"; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 				F9EF588F25E0271C005DA84E /* UIView+CourseExtensions.swift */,
 				F9EF589325E02CFB005DA84E /* UIView+AddSubviewAndFill.swift */,
 				F9EF589A25E02F8F005DA84E /* CGSize+Extension.swift */,
+				F9A2962F25E2F89900C6DF7D /* UIButton+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				F9EF588625E024BA005DA84E /* FeedCell.swift */,
+				F9A2962C25E2F6A100C6DF7D /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,8 +232,10 @@
 				F9EF588725E024BA005DA84E /* FeedCell.swift in Sources */,
 				F9EF589B25E02F8F005DA84E /* CGSize+Extension.swift in Sources */,
 				F964864925DE8C640004824D /* ImageSelectorController.swift in Sources */,
+				F9A2963025E2F89900C6DF7D /* UIButton+Extension.swift in Sources */,
 				F964864C25DE8C7E0004824D /* NotificationController.swift in Sources */,
 				F964864625DE8C4F0004824D /* SearchController.swift in Sources */,
+				F9A2962D25E2F6A100C6DF7D /* CustomTextField.swift in Sources */,
 				F9EF589825E02F3E005DA84E /* Sizes.swift in Sources */,
 				F9EF589425E02CFB005DA84E /* UIView+AddSubviewAndFill.swift in Sources */,
 				F964862325DE89AD0004824D /* AppDelegate.swift in Sources */,
