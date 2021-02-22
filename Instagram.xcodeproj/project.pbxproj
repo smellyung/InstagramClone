@@ -18,6 +18,8 @@
 		F964864925DE8C640004824D /* ImageSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F964864825DE8C640004824D /* ImageSelectorController.swift */; };
 		F964864C25DE8C7E0004824D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F964864B25DE8C7E0004824D /* NotificationController.swift */; };
 		F964864F25DE8C8A0004824D /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F964864E25DE8C8A0004824D /* ProfileController.swift */; };
+		F9A2962625E2CCD000C6DF7D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A2962525E2CCD000C6DF7D /* LoginController.swift */; };
+		F9A2962A25E2CCDD00C6DF7D /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A2962925E2CCDD00C6DF7D /* RegistrationController.swift */; };
 		F9A2962D25E2F6A100C6DF7D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A2962C25E2F6A100C6DF7D /* CustomTextField.swift */; };
 		F9A2963025E2F89900C6DF7D /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A2962F25E2F89900C6DF7D /* UIButton+Extension.swift */; };
 		F9EF588725E024BA005DA84E /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EF588625E024BA005DA84E /* FeedCell.swift */; };
@@ -25,6 +27,7 @@
 		F9EF589425E02CFB005DA84E /* UIView+AddSubviewAndFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EF589325E02CFB005DA84E /* UIView+AddSubviewAndFill.swift */; };
 		F9EF589825E02F3E005DA84E /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EF589725E02F3E005DA84E /* Sizes.swift */; };
 		F9EF589B25E02F8F005DA84E /* CGSize+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EF589A25E02F8F005DA84E /* CGSize+Extension.swift */; };
+		F9F1CBF625E3FE8B00B1A516 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F1CBF525E3FE8B00B1A516 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,8 @@
 		F964864825DE8C640004824D /* ImageSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorController.swift; sourceTree = "<group>"; };
 		F964864B25DE8C7E0004824D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		F964864E25DE8C8A0004824D /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		F9A2962525E2CCD000C6DF7D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		F9A2962925E2CCDD00C6DF7D /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		F9A2962C25E2F6A100C6DF7D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		F9A2962F25E2F89900C6DF7D /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		F9EF588625E024BA005DA84E /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
@@ -48,6 +53,7 @@
 		F9EF589325E02CFB005DA84E /* UIView+AddSubviewAndFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubviewAndFill.swift"; sourceTree = "<group>"; };
 		F9EF589725E02F3E005DA84E /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
 		F9EF589A25E02F8F005DA84E /* CGSize+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Extension.swift"; sourceTree = "<group>"; };
+		F9F1CBF525E3FE8B00B1A516 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,7 @@
 				F9EF589325E02CFB005DA84E /* UIView+AddSubviewAndFill.swift */,
 				F9EF589A25E02F8F005DA84E /* CGSize+Extension.swift */,
 				F9A2962F25E2F89900C6DF7D /* UIButton+Extension.swift */,
+				F9F1CBF525E3FE8B00B1A516 /* UIViewController+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -118,6 +125,7 @@
 		F964863925DE8A000004824D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F9A2962425E2CCB900C6DF7D /* Authentication */,
 				F964863F25DE8A920004824D /* MainTabController.swift */,
 				F964864225DE8C410004824D /* FeedController.swift */,
 				F964864525DE8C4F0004824D /* SearchController.swift */,
@@ -149,6 +157,15 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F9A2962425E2CCB900C6DF7D /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				F9A2962525E2CCD000C6DF7D /* LoginController.swift */,
+				F9A2962925E2CCDD00C6DF7D /* RegistrationController.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		F9EF589625E02F2E005DA84E /* Styles */ = {
@@ -232,8 +249,11 @@
 				F9EF588725E024BA005DA84E /* FeedCell.swift in Sources */,
 				F9EF589B25E02F8F005DA84E /* CGSize+Extension.swift in Sources */,
 				F964864925DE8C640004824D /* ImageSelectorController.swift in Sources */,
+				F9A2962625E2CCD000C6DF7D /* LoginController.swift in Sources */,
 				F9A2963025E2F89900C6DF7D /* UIButton+Extension.swift in Sources */,
 				F964864C25DE8C7E0004824D /* NotificationController.swift in Sources */,
+				F9A2962A25E2CCDD00C6DF7D /* RegistrationController.swift in Sources */,
+				F9F1CBF625E3FE8B00B1A516 /* UIViewController+Extension.swift in Sources */,
 				F964864625DE8C4F0004824D /* SearchController.swift in Sources */,
 				F9A2962D25E2F6A100C6DF7D /* CustomTextField.swift in Sources */,
 				F9EF589825E02F3E005DA84E /* Sizes.swift in Sources */,
