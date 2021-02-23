@@ -4,6 +4,8 @@ class LoginController: UIViewController {
 
     // MARK: - Properties
 
+    private let viewModel: LoginViewModel
+
     private let iconImage: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "Instagram_logo_white"))
         imageView.contentMode = .scaleAspectFill
@@ -46,6 +48,20 @@ class LoginController: UIViewController {
         button.attributedTitle(regularText: "Forgot your password?", boldText: "Get help signing in.")
         return button
     }()
+
+    // MARK: - Initializers
+
+    init(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
+
+        super.init(nibName: nil, bundle: nil)
+
+        viewModel.delegate = self
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Actions
 

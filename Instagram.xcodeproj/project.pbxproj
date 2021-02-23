@@ -28,6 +28,8 @@
 		F9EF589825E02F3E005DA84E /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EF589725E02F3E005DA84E /* Sizes.swift */; };
 		F9EF589B25E02F8F005DA84E /* CGSize+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EF589A25E02F8F005DA84E /* CGSize+Extension.swift */; };
 		F9F1CBF625E3FE8B00B1A516 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F1CBF525E3FE8B00B1A516 /* UIViewController+Extension.swift */; };
+		F9F1CBFA25E402B600B1A516 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F1CBF925E402B600B1A516 /* LoginViewModel.swift */; };
+		F9F1CBFD25E405D500B1A516 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F1CBFC25E405D500B1A516 /* RegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +141,8 @@
 		F964863B25DE8A0B0004824D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F9F1CBF925E402B600B1A516 /* LoginViewModel.swift */,
+				F9F1CBFC25E405D500B1A516 /* RegistrationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -255,12 +259,14 @@
 				F9A2962A25E2CCDD00C6DF7D /* RegistrationController.swift in Sources */,
 				F9F1CBF625E3FE8B00B1A516 /* UIViewController+Extension.swift in Sources */,
 				F964864625DE8C4F0004824D /* SearchController.swift in Sources */,
+				F9F1CBFD25E405D500B1A516 /* RegistrationViewModel.swift in Sources */,
 				F9A2962D25E2F6A100C6DF7D /* CustomTextField.swift in Sources */,
 				F9EF589825E02F3E005DA84E /* Sizes.swift in Sources */,
 				F9EF589425E02CFB005DA84E /* UIView+AddSubviewAndFill.swift in Sources */,
 				F964862325DE89AD0004824D /* AppDelegate.swift in Sources */,
 				F964864F25DE8C8A0004824D /* ProfileController.swift in Sources */,
 				F964864325DE8C410004824D /* FeedController.swift in Sources */,
+				F9F1CBFA25E402B600B1A516 /* LoginViewModel.swift in Sources */,
 				F964864025DE8A920004824D /* MainTabController.swift in Sources */,
 				F9EF589025E0271C005DA84E /* UIView+CourseExtensions.swift in Sources */,
 				F964862525DE89AD0004824D /* SceneDelegate.swift in Sources */,
