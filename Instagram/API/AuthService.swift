@@ -11,6 +11,11 @@ struct AuthCredentials {
 
 
 struct AuthService {
+    static func logUserIn(withEmail email: String, password: String, completion: AuthDataResultCallback?) {
+        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
+    }
+
+
     static func registerUser(
         withCredentials credentials: AuthCredentials,
         completion: @escaping(Error?, DatabaseReference) -> Void
@@ -30,7 +35,7 @@ struct AuthService {
                 let data: [String: Any] = [
                     "email": credentials.email,
                     "password": credentials.password,
-                    "profileImageUrl": credentials.profileImage,
+                    "profileImageUrl": imageUrl,
                     "uid": uid,
                     "username": credentials.username
                 ]

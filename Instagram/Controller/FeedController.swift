@@ -1,4 +1,5 @@
 import UIKit
+import Firebase
 
 class FeedController: UICollectionViewController {
 
@@ -17,6 +18,30 @@ class FeedController: UICollectionViewController {
         // TODO: find a way to get identifier programatically
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: FeedCell.reuseIdentifier)
         collectionView.dataSource = self
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "Logout",
+            style: .plain,
+            target: self,
+            action: #selector(handleLogout)
+        )
+
+        navigationItem.title = "Feed"
+    }
+
+    // MARK: - Actions
+
+    @objc func handleLogout() {
+        do {
+            try Auth.auth().signOut()
+            let viewModel = LoginViewModel()
+            let controller = LoginController(viewModel: viewModel)
+            let nav = UINavigationController(rootViewController: controller)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true, completion: nil)
+        } catch {
+            print("DEBUG: Failed to sign out")
+        }
     }
 }
 
