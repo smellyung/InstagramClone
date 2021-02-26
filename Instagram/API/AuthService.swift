@@ -18,7 +18,7 @@ struct AuthService {
 
     static func registerUser(
         withCredentials credentials: AuthCredentials,
-        completion: @escaping(Error?, DatabaseReference) -> Void
+        completion: @escaping(Error?) -> Void
     ) {
         ImageUploader.uploadImage(image: credentials.profileImage) { imageUrl in
             Auth.auth().createUser(
@@ -35,25 +35,14 @@ struct AuthService {
                 let data: [String: Any] = [
                     "email": credentials.email,
                     "password": credentials.password,
+                    "fullname": credentials.fullname,
+                    "username": credentials.username,
                     "profileImageUrl": imageUrl,
                     "uid": uid,
-                    "username": credentials.username
                 ]
 
-                // uploads to RealTimeDatabase (+auth +storage etc)
-                Database
-                    .database()
-                    .reference()
-                    .child("users")
-                    .child(uid)
-                    .setValue(data, withCompletionBlock: completion)
-
-                // Udemy code
-//                Firestore
-//                    .firestore()
-//                    .collection("users")
-//                    .document(uid)
-//                    .setData(data, completion: completion)
+                // Stores in Cloud FireStore (new)
+                COLLECTION_USERS.document(uid).setData(data, completion: completion)
             }
         }
     }
