@@ -9,6 +9,7 @@ class MainTabController: UITabBarController {
 
         configureViewControllers()
         checkIfUserIsLoggedIn()
+//        logout()
     }
 
     // MARK: - API
@@ -46,8 +47,8 @@ class MainTabController: UITabBarController {
         let imageSelector = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "plus_unselected"), selectedImage: #imageLiteral(resourceName: "plus_unselected"), rootViewController: ImageSelectorController())
         let notifications = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "like_unselected"), selectedImage: #imageLiteral(resourceName: "like_selected"), rootViewController: NotificationController())
 
-        let profileLayout = UICollectionViewFlowLayout()
-        let profile = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "profile_unselected"), selectedImage: #imageLiteral(resourceName: "profile_selected"), rootViewController: ProfileController(collectionViewLayout: profileLayout))
+        let profileViewModel = ProfileViewModel()
+        let profile = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "profile_unselected"), selectedImage: #imageLiteral(resourceName: "profile_selected"), rootViewController: ProfileController(viewModel: profileViewModel))
 
         viewControllers = [feed, search, imageSelector, notifications, profile]
 

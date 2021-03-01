@@ -14,8 +14,6 @@ class FeedController: UICollectionViewController {
 
     func configureUI() {
         collectionView.backgroundColor = .white
-
-        // TODO: find a way to get identifier programatically
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: FeedCell.reuseIdentifier)
         collectionView.dataSource = self
 
@@ -25,7 +23,6 @@ class FeedController: UICollectionViewController {
             target: self,
             action: #selector(handleLogout)
         )
-
         navigationItem.title = "Feed"
     }
 
