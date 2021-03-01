@@ -8,19 +8,13 @@ class ProfileViewModel {
     weak var delegate: ProfileViewModelDelegate?
 
     // create func getUser() instead?
-    var user: User? {
+    var user: User {
         didSet {
             self.delegate?.profileViewModelDidUpdate(self)
         }
     }
 
-    func load() {
-        fetchUser()
-    }
-
-    private func fetchUser() {
-        UserService.fetchUser { user in
-            self.user = user
-        }
+    init(user: User) {
+        self.user = user
     }
 }

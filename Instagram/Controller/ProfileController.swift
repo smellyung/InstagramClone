@@ -4,23 +4,21 @@ class ProfileController: UICollectionViewController {
     // MARK: - Properties
 
     var viewModel: ProfileViewModel
-
-    // MARK: - Initialisers
+    
+    // MARK: - Lifecycle
 
     init(viewModel: ProfileViewModel) {
         self.viewModel = viewModel
 
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
-        
+
         viewModel.delegate = self
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - Lifecycle
-
+     
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,7 +26,9 @@ class ProfileController: UICollectionViewController {
     }
 
     // MARK: - Helpers
+
     func configureCollectionView() {
+        navigationItem.title = viewModel.user.username
         collectionView.backgroundColor = .white
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -38,7 +38,6 @@ class ProfileController: UICollectionViewController {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: ProfileHeader.reuseIdentifier
         )
-        viewModel.load()
     }
 }
 
@@ -61,12 +60,8 @@ extension ProfileController {
             for: indexPath
         ) as! ProfileHeader
 
-        // find another way to set this?
-        if let user = viewModel.user {
-            header.viewModel = ProfileHeaderViewModel(user: user)
-        } else {
-            print("DEBUG: User not yet set...")
-        }
+        let user = viewModel.user
+        header.viewModel = ProfileHeaderViewModel(user: user)
 
         return header
     }
@@ -103,6 +98,5 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
 extension ProfileController: ProfileViewModelDelegate {
     func profileViewModelDidUpdate(_ profileViewModel: ProfileViewModel) {
         self.collectionView.reloadData()
-        self.navigationItem.title = viewModel.user?.username ?? ""
     }
 }

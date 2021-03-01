@@ -3,26 +3,44 @@ import Firebase
 
 class MainTabController: UITabBarController {
 
+    // should MainTabController also have a VM to send this info to VC?
+    private var user: User? {
+        didSet {
+            guard let user = user else { return }
+            configureViewControllers(withUser: user)
+        }
+    }
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureViewControllers()
         checkIfUserIsLoggedIn()
 //        logout()
     }
 
     // MARK: - API
 
+    private func fetchUser() {
+        UserService.fetchUser { user in
+            print("current user from ProfileVM: \(user)")
+            self.user = user
+        }
+    }
+
     func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
                 let viewModel = LoginViewModel()
                 let controller = LoginController(viewModel: viewModel)
-                let nav = UINavigationController(rootViewController: controller)
-                nav.modalPresentationStyle = .fullScreen
-                self.present(nav, animated: true, completion: nil)
+                controller.delegate = self
+                let navigationController = UINavigationController(rootViewController: controller)
+                navigationController.modalPresentationStyle = .fullScreen
+                self.present(navigationController, animated: true, completion: nil)
             }
+        } else {
+            // initial fetch
+            fetchUser()
         }
     }
 
@@ -36,7 +54,7 @@ class MainTabController: UITabBarController {
 
     // MARK: - Helpers
 
-    func configureViewControllers() {
+    func configureViewControllers(withUser user: User) {
         view.backgroundColor = .white
 
         let layout = UICollectionViewFlowLayout()
@@ -47,8 +65,12 @@ class MainTabController: UITabBarController {
         let imageSelector = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "plus_unselected"), selectedImage: #imageLiteral(resourceName: "plus_unselected"), rootViewController: ImageSelectorController())
         let notifications = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "like_unselected"), selectedImage: #imageLiteral(resourceName: "like_selected"), rootViewController: NotificationController())
 
-        let profileViewModel = ProfileViewModel()
-        let profile = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "profile_unselected"), selectedImage: #imageLiteral(resourceName: "profile_selected"), rootViewController: ProfileController(viewModel: profileViewModel))
+        let profileViewModel = ProfileViewModel(user: user)
+        let profile = templateNavigationController(
+            unselectedImage: #imageLiteral(resourceName: "profile_unselected"),
+            selectedImage: #imageLiteral(resourceName: "profile_selected"),
+            rootViewController: ProfileController(viewModel: profileViewModel)
+        )
 
         viewControllers = [feed, search, imageSelector, notifications, profile]
 
@@ -65,5 +87,13 @@ class MainTabController: UITabBarController {
         nav.tabBarItem.selectedImage = selectedImage
         nav.navigationBar.tintColor = .black
         return nav
+    }
+}
+
+extension MainTabController: AuthenticationDelegate {
+    func authenticationDidComplete() {
+        print("DEBUG: Auth did complete. Fetch user and update here...")
+        self.dismiss(animated: true, completion: nil)
+        self.fetchUser()
     }
 }

@@ -1,10 +1,16 @@
 import UIKit
 
+// TODO: move this to own file
+protocol AuthenticationDelegate: class {
+    func authenticationDidComplete()
+}
+
 class LoginController: UIViewController {
 
     // MARK: - Properties
 
     private let viewModel: LoginViewModel
+    weak var delegate: AuthenticationDelegate?
 
     private let iconImage: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "Instagram_logo_white"))
@@ -68,6 +74,7 @@ class LoginController: UIViewController {
 
     @objc func handleShowSignUp() {
         let controller = RegistrationController()
+        controller.delegate = delegate
         navigationController?.pushViewController(controller, animated: true)
     }
 
@@ -95,7 +102,7 @@ class LoginController: UIViewController {
                 return
             }
 
-            self.dismiss(animated: true, completion: nil)
+            self.delegate?.authenticationDidComplete()
         }
     }
 
