@@ -30,6 +30,7 @@
 		F9A2963025E2F89900C6DF7D /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A2962F25E2F89900C6DF7D /* UIButton+Extension.swift */; };
 		F9BE708625E7EA420038647B /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE708525E7EA420038647B /* ProfileCell.swift */; };
 		F9BE708925E7EA560038647B /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BE708825E7EA560038647B /* ProfileHeader.swift */; };
+		F9C3FA1A25E9463B00EFD24D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C3FA1925E9463B00EFD24D /* ProfileViewModel.swift */; };
 		F9E4297725E68AFA00939288 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4297625E68AFA00939288 /* ImageUploader.swift */; };
 		F9E4297A25E68B0200939288 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4297925E68B0100939288 /* AuthService.swift */; };
 		F9EF588725E024BA005DA84E /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EF588625E024BA005DA84E /* FeedCell.swift */; };
@@ -60,12 +61,17 @@
 		F964864B25DE8C7E0004824D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		F964864E25DE8C8A0004824D /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		F96EE92925E54D4D0005654D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F972F28725E80AFB00D21AE2 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		F972F28A25E80B5400D21AE2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F972F28D25E80CBE00D21AE2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F972F29025E8174100D21AE2 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		F9A2962525E2CCD000C6DF7D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		F9A2962925E2CCDD00C6DF7D /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		F9A2962C25E2F6A100C6DF7D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		F9A2962F25E2F89900C6DF7D /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		F9BE708525E7EA420038647B /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		F9BE708825E7EA560038647B /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
+		F9C3FA1925E9463B00EFD24D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		F9E4297625E68AFA00939288 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		F9E4297925E68B0100939288 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		F9EF588625E024BA005DA84E /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
@@ -164,6 +170,7 @@
 			children = (
 				F9E4297625E68AFA00939288 /* ImageUploader.swift */,
 				F9E4297925E68B0100939288 /* AuthService.swift */,
+				F972F28725E80AFB00D21AE2 /* UserService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -187,6 +194,8 @@
 			children = (
 				F9F1CBF925E402B600B1A516 /* LoginViewModel.swift */,
 				F9F1CBFC25E405D500B1A516 /* RegistrationViewModel.swift */,
+				F972F29025E8174100D21AE2 /* ProfileHeaderViewModel.swift */,
+				F9C3FA1925E9463B00EFD24D /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -204,6 +213,7 @@
 		F964863D25DE8A120004824D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F972F28D25E80CBE00D21AE2 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,8 +362,10 @@
 				F9E4297A25E68B0200939288 /* AuthService.swift in Sources */,
 				F9EF588725E024BA005DA84E /* FeedCell.swift in Sources */,
 				F9EF589B25E02F8F005DA84E /* CGSize+Extension.swift in Sources */,
+				F972F29125E8174100D21AE2 /* ProfileHeaderViewModel.swift in Sources */,
 				F9E4297725E68AFA00939288 /* ImageUploader.swift in Sources */,
 				F964864925DE8C640004824D /* ImageSelectorController.swift in Sources */,
+				F972F28825E80AFB00D21AE2 /* UserService.swift in Sources */,
 				F9A2962625E2CCD000C6DF7D /* LoginController.swift in Sources */,
 				F9A2963025E2F89900C6DF7D /* UIButton+Extension.swift in Sources */,
 				F964864C25DE8C7E0004824D /* NotificationController.swift in Sources */,
@@ -367,8 +379,10 @@
 				F964862325DE89AD0004824D /* AppDelegate.swift in Sources */,
 				F964864F25DE8C8A0004824D /* ProfileController.swift in Sources */,
 				F9BE708925E7EA560038647B /* ProfileHeader.swift in Sources */,
+				F972F28E25E80CBE00D21AE2 /* User.swift in Sources */,
 				F964864325DE8C410004824D /* FeedController.swift in Sources */,
 				F9F1CBFA25E402B600B1A516 /* LoginViewModel.swift in Sources */,
+				F9C3FA1A25E9463B00EFD24D /* ProfileViewModel.swift in Sources */,
 				F964864025DE8A920004824D /* MainTabController.swift in Sources */,
 				F9BE708625E7EA420038647B /* ProfileCell.swift in Sources */,
 				F9EF589025E0271C005DA84E /* UIView+CourseExtensions.swift in Sources */,
