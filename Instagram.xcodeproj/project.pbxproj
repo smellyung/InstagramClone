@@ -24,6 +24,8 @@
 		F972F28B25E80B5400D21AE2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972F28A25E80B5400D21AE2 /* Constants.swift */; };
 		F972F28E25E80CBE00D21AE2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972F28D25E80CBE00D21AE2 /* User.swift */; };
 		F972F29125E8174100D21AE2 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972F29025E8174100D21AE2 /* ProfileHeaderViewModel.swift */; };
+		F9736DAD25ED355F006969FB /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9736DAC25ED355F006969FB /* UserCell.swift */; };
+		F9736DB125ED3E38006969FB /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9736DB025ED3E38006969FB /* SearchViewModel.swift */; };
 		F9A2962625E2CCD000C6DF7D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A2962525E2CCD000C6DF7D /* LoginController.swift */; };
 		F9A2962A25E2CCDD00C6DF7D /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A2962925E2CCDD00C6DF7D /* RegistrationController.swift */; };
 		F9A2962D25E2F6A100C6DF7D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A2962C25E2F6A100C6DF7D /* CustomTextField.swift */; };
@@ -65,6 +67,8 @@
 		F972F28A25E80B5400D21AE2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F972F28D25E80CBE00D21AE2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F972F29025E8174100D21AE2 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
+		F9736DAC25ED355F006969FB /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		F9736DB025ED3E38006969FB /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		F9A2962525E2CCD000C6DF7D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		F9A2962925E2CCDD00C6DF7D /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		F9A2962C25E2F6A100C6DF7D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				F9F1CBFC25E405D500B1A516 /* RegistrationViewModel.swift */,
 				F972F29025E8174100D21AE2 /* ProfileHeaderViewModel.swift */,
 				F9C3FA1925E9463B00EFD24D /* ProfileViewModel.swift */,
+				F9736DB025ED3E38006969FB /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				F9BE708B25E7EA590038647B /* Profile */,
 				F9EF588625E024BA005DA84E /* FeedCell.swift */,
 				F9A2962C25E2F6A100C6DF7D /* CustomTextField.swift */,
+				F9736DAC25ED355F006969FB /* UserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -376,6 +382,7 @@
 				F9A2962D25E2F6A100C6DF7D /* CustomTextField.swift in Sources */,
 				F9EF589825E02F3E005DA84E /* Sizes.swift in Sources */,
 				F9EF589425E02CFB005DA84E /* UIView+AddSubviewAndFill.swift in Sources */,
+				F9736DB125ED3E38006969FB /* SearchViewModel.swift in Sources */,
 				F964862325DE89AD0004824D /* AppDelegate.swift in Sources */,
 				F964864F25DE8C8A0004824D /* ProfileController.swift in Sources */,
 				F9BE708925E7EA560038647B /* ProfileHeader.swift in Sources */,
@@ -386,6 +393,7 @@
 				F964864025DE8A920004824D /* MainTabController.swift in Sources */,
 				F9BE708625E7EA420038647B /* ProfileCell.swift in Sources */,
 				F9EF589025E0271C005DA84E /* UIView+CourseExtensions.swift in Sources */,
+				F9736DAD25ED355F006969FB /* UserCell.swift in Sources */,
 				F964862525DE89AD0004824D /* SceneDelegate.swift in Sources */,
 				F972F28B25E80B5400D21AE2 /* Constants.swift in Sources */,
 			);
