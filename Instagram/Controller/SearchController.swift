@@ -5,6 +5,7 @@ class SearchController: UITableViewController {
     // MARK: - Properties
 
     private var viewModel: SearchViewModel
+    private let searchController = UISearchController(searchResultsController: nil)
 
     // MARK: - Lifecycle
 
@@ -20,17 +21,28 @@ class SearchController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureTableView()
-
         viewModel.delegate = self
         viewModel.load()
+
+        configureTableView()
+        configureSearchController()
     }
 
     // MARK: - Helpers
+
     func configureTableView() {
         view.backgroundColor = .white
         tableView.register(UserCell.self, forCellReuseIdentifier: UserCell.reuseIdentifier)
         tableView.rowHeight = 64
+    }
+
+    func configureSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = false
     }
 }
 
@@ -48,8 +60,31 @@ extension SearchController {
     }
 }
 
+// MARK: - Delegates
+
+extension SearchController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = viewModel.users[indexPath.row]
+        let profileViewModel = ProfileViewModel(user: user)
+        let controller = ProfileController(viewModel: profileViewModel)
+        navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
 extension SearchController: SearchViewModelDelegate {
     func searchViewModelDidUpdate() {
         self.tableView.reloadData()
     }
 }
+
+//MARK: - UISearchResultsUpdating
+
+extension SearchController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text?.lowercased() else { return }
+        print("DEBUG: search text: \(searchText)")
+
+        viewModel.search(for: searchText)
+    }
+}
+
