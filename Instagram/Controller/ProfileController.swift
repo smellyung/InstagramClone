@@ -23,6 +23,9 @@ class ProfileController: UICollectionViewController {
         super.viewDidLoad()
 
         configureCollectionView()
+
+        viewModel.checkIfIsFollowed()
+        viewModel.fetchUserStats()
     }
 
     // MARK: - Helpers
@@ -62,6 +65,7 @@ extension ProfileController {
 
         let user = viewModel.user
         header.viewModel = ProfileHeaderViewModel(user: user)
+        header.delegate = self
 
         return header
     }
@@ -98,5 +102,25 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
 extension ProfileController: ProfileViewModelDelegate {
     func profileViewModelDidUpdate(_ profileViewModel: ProfileViewModel) {
         self.collectionView.reloadData()
+    }
+}
+
+extension ProfileController: ProfileHeaderDelegate {
+    func header(_ profileHeader: ProfileHeader, didTapActionButtonFor user: User) {
+        print("DEBUG: Handle action in controller")
+
+        if user.isCurrentUser {
+            print("DEBUG: Show edit profile")
+        } else if user.isFollowed {
+            UserService.unfollow(uid: user.uid) { (error) in
+                // TODO: write func to update user in vm instead of directly setting it
+                self.viewModel.user.isFollowed = false
+            }
+        } else {
+            UserService.follow(uid: user.uid) { (error) in
+                // TODO: write func to update user in vm instead of directly setting it
+                self.viewModel.user.isFollowed = true
+            }
+        }
     }
 }

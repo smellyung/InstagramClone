@@ -17,4 +17,18 @@ class ProfileViewModel {
     init(user: User) {
         self.user = user
     }
+
+    func checkIfIsFollowed() {
+        UserService.checkIfUserIsFollowed(uid: user.uid) { (isFollowed) in
+            self.user.isFollowed = isFollowed
+        }
+    }
+
+    func fetchUserStats() {
+        UserService.fetchUserStats(uid: user.uid) { stats in
+            self.user.stats = stats
+
+            print("DEBUG: Stats: \(stats)")
+        }
+    }
 }
