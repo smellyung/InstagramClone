@@ -55,15 +55,20 @@ class UploadPostController: UIViewController {
     }
 
     @objc func didTapDone() {
-        print("DEBUG: Share post here ...")
-
         guard
             let image = selectedImage,
             let caption = captionTextView.text else { return }
 
+        showLoader(true)
+
         PostService.uploadPost(caption: caption, image: image) { error in
-            print("DEBUG: Failed to upload post with error: \(String(describing: error?.localizedDescription))")
-            return // otherwise stays in this competion block
+            self.showLoader(false)
+
+            if let error = error {
+                // TODO: - Handle error
+                print("DEBUG: Failed to upload post with error: \(String(describing: error.localizedDescription))")
+                return // otherwise stays in this competion block
+            }
         }
 
         self.delegate?.controllerDidFinishUploadingPost(self)
