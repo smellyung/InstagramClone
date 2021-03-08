@@ -3,7 +3,7 @@ import Firebase
 
 struct PostService {
 
-    static func uploadPost(caption: String, image: UIImage, completion: @escaping(FirestoreCompletion)) {
+    static func uploadPost(caption: String, image: UIImage, user: User, completion: @escaping(FirestoreCompletion)) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
 
         // note: upload image first to firebase so that we can use the firestore url of that image
@@ -14,11 +14,25 @@ struct PostService {
                 "timestamp": Timestamp(date: Date()),
                 "likes": 0,
                 "imageUrl": imageUrl,
-                "ownerUid": uid
+                "ownerUid": uid,
+                "ownerImageUrl": user.profileImageUrl,
+                "ownerUsername": user.username
             ]
 
             COLLECTION_POSTS.addDocument(data: data, completion: completion)
         }
 
+    }
+
+    static func fetchPosts(completion: @escaping([Post]) -> Void) {
+        COLLECTION_POSTS.getDocuments { (snapshot, error) in
+            guard let documents = snapshot?.documents else { return }
+
+            let posts = documents.map {
+                Post(postId: $0.documentID, dictionary: $0.data())
+            }
+
+            completion(posts)
+        }
     }
 }

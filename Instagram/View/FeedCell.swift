@@ -7,6 +7,12 @@ class FeedCell: UICollectionViewCell {
 
     // MARK: - Properties
 
+    var post: Post? {
+        didSet {
+            configure()
+        }
+    }
+
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -41,10 +47,7 @@ class FeedCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
-
-        // TODO: temp stored image from assets
-        imageView.image = #imageLiteral(resourceName: "venom-7")
-
+        imageView.backgroundColor = .lightGray
         return imageView
     }()
 
@@ -71,14 +74,12 @@ class FeedCell: UICollectionViewCell {
 
     private let likesLabel: UILabel = {
         let label = UILabel()
-        label.text = "1 like"
         label.font = .boldSystemFont(ofSize: 12)
         return label
     }()
 
     private let captionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Some text caption for now"
         label.font = .boldSystemFont(ofSize: 12)
         return label
     }()
@@ -151,5 +152,24 @@ class FeedCell: UICollectionViewCell {
         print("tapped username")
     }
 
+    // MARK: - Helpers
+
+    func configure() {
+        guard let post = post else { return }
+
+        captionLabel.text = post.caption
+
+        // move some of this to cell's own VM?
+        let image = URL(string: post.imageUrl)
+        postImageView.sd_setImage(with: image) // SD_WebImage auto handles caching images
+
+        let likesLabelText = post.likes == 1 ? "\(post.likes) like" : "\(post.likes) likes"
+        likesLabel.text = likesLabelText
+
+        let userProfileImage = URL(string: post.ownerImageUrl)
+        profileImageView.sd_setImage(with: userProfileImage)
+
+        usernameButton.setTitle(post.ownerUsername, for: .normal)
+    }
 }
 

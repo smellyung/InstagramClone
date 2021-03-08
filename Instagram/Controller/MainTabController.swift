@@ -59,10 +59,13 @@ class MainTabController: UITabBarController {
         view.backgroundColor = .white
         self.delegate = self
 
-        let layout = UICollectionViewFlowLayout()
-
         // TODO: setup using images progrmatically
-        let feed = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "home_unselected"), selectedImage: #imageLiteral(resourceName: "home_selected"), rootViewController: FeedController(collectionViewLayout: layout))
+        let feedViewModel = PostViewModel()
+        let feed = templateNavigationController(
+            unselectedImage: #imageLiteral(resourceName: "home_unselected"),
+            selectedImage: #imageLiteral(resourceName: "home_selected"),
+            rootViewController: FeedController(viewModel: feedViewModel)
+        )
 
         let searchViewModel = SearchViewModel()
         let search = templateNavigationController(
@@ -106,6 +109,7 @@ class MainTabController: UITabBarController {
                 let controller = UploadPostController()
                 controller.selectedImage = selectedImage
                 controller.delegate = self
+                controller.currentUser = self.user
                 let nav = UINavigationController(rootViewController: controller)
                 nav.modalPresentationStyle = .fullScreen
 
