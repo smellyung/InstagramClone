@@ -50,8 +50,6 @@ class FeedController: UICollectionViewController {
     // MARK: - Actions
 
     @objc func handleRefresh() {
-        // is this needed?
-        viewModel.posts.removeAll()
         viewModel.fetchPosts()
     }
 
