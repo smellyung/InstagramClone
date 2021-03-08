@@ -72,9 +72,10 @@ class UploadPostController: UIViewController {
                 print("DEBUG: Failed to upload post with error: \(String(describing: error.localizedDescription))")
                 return // otherwise stays in this competion block
             }
+
+            self.delegate?.controllerDidFinishUploadingPost(self)
         }
 
-        self.delegate?.controllerDidFinishUploadingPost(self)
     }
 
     // MARK: - Helpers

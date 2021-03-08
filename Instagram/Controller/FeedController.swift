@@ -41,9 +41,19 @@ class FeedController: UICollectionViewController {
             action: #selector(handleLogout)
         )
         navigationItem.title = "Feed"
+
+        let refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        collectionView.refreshControl = refresher
     }
 
     // MARK: - Actions
+
+    @objc func handleRefresh() {
+        // is this needed?
+        viewModel.posts.removeAll()
+        viewModel.fetchPosts()
+    }
 
     @objc func handleLogout() {
         do {
@@ -97,6 +107,7 @@ extension FeedController: UICollectionViewDelegateFlowLayout {
 
 extension FeedController: PostViewModelDelegate {
     func postViewModelDidUpdate(_ postViewModel: PostViewModel) {
+        self.collectionView.refreshControl?.endRefreshing()
         self.collectionView.reloadData()
     }
 }
