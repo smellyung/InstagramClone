@@ -14,6 +14,12 @@ class ProfileViewModel {
         }
     }
 
+    var posts: [Post] = [Post]() {
+        didSet {
+            self.delegate?.profileViewModelDidUpdate(self)
+        }
+    }
+
     init(user: User) {
         self.user = user
     }
@@ -29,6 +35,13 @@ class ProfileViewModel {
             self.user.stats = stats
 
             print("DEBUG: Stats: \(stats)")
+        }
+    }
+
+    func fetchPosts() {
+        PostService.fetchPost(forUser: user.uid) { posts in
+            self.posts = posts
+            self.delegate?.profileViewModelDidUpdate(self)
         }
     }
 }

@@ -26,6 +26,7 @@ class ProfileController: UICollectionViewController {
 
         viewModel.checkIfIsFollowed()
         viewModel.fetchUserStats()
+        viewModel.fetchPosts()
     }
 
     // MARK: - Helpers
@@ -48,11 +49,20 @@ class ProfileController: UICollectionViewController {
 // MARK: - UICollectionViewDataSource
 extension ProfileController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return viewModel.posts.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileCell.reuseIdentifier, for: indexPath) as! ProfileCell
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: ProfileCell.reuseIdentifier,
+            for: indexPath
+        ) as! ProfileCell
+
+        let post = viewModel.posts[indexPath.row]
+        let imageURL = URL(string: post.imageUrl)
+
+        cell.postImageView.sd_setImage(with: imageURL)
+
         return cell
     }
 
@@ -72,8 +82,12 @@ extension ProfileController {
 }
 
 // MARK: - UICollectionViewDelegate
-extension ProfileController {
 
+extension ProfileController {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("DEBUG: Post is \(viewModel.posts[indexPath.row].caption)")
+
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

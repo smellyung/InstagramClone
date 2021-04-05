@@ -4,9 +4,9 @@ class ProfileCell: UICollectionViewCell {
 
     // MARK: - Properties
 
-    private let postImageView: UIImageView = {
+    let postImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "venom-7")
+        iv.backgroundColor = .lightGray
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         return iv
@@ -28,4 +28,6 @@ class ProfileCell: UICollectionViewCell {
     }
 
     // MARK: - Helpers
+
+
 }
